@@ -1,10 +1,11 @@
 import React from 'react'
-import Hand from './hand'
+import Table from './table'
+import { hot } from 'react-hot-loader/root'
 
 const App = () => {
     return (
-        <Hand/>
+        <Table/>
     )
 };
 
-export default App
+export default hot(App)
