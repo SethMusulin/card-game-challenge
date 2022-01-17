@@ -1,4 +1,4 @@
 class DealSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :player_1, :player_2
+  attributes :winner, :player_1, :player_2
 end

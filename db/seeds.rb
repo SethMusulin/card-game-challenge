@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-if Hand.all.empty?
+if Deal.all.empty?
   File.foreach("lib/seeds/poker.txt").with_index do |line, line_num|
-    Hand.create(player_1:line[0,14].chomp, player_2:line[15,29].chomp)
-    pp"creating hand #{line[0,14].chomp} #{line[15,29].chomp}"
+    Deal.create(player_1:line[0,14].chomp, player_2:line[15,29].chomp)
+    pp"creating hand #{line_num}"
   end
 end
