@@ -1,5 +1,4 @@
-class TablesController < ApplicationController
-  def home
-    @hands = Hand.all
-  end
+  class TablesController < ApplicationController
+    def home
+    end
 end

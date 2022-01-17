@@ -1,8 +1,9 @@
 module Api
   class HandsController < ApplicationController
     def index
-    hand = Hand.all.sample
-      render json: HandSerializer.new(hand).serialized_json
+    deal = Deal.all.sample
+    deal.determine_winner
+      render json: DealSerializer.new(deal).serialized_json
     end
 
     def show
