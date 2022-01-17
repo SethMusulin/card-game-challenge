@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_14_175111) do
+ActiveRecord::Schema.define(version: 2022_01_15_172758) do
 
-  create_table "hands", force: :cascade do |t|
+  create_table "deals", force: :cascade do |t|
     t.string "player_1"
     t.string "player_2"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "winner"
   end
 
   create_table "tables", force: :cascade do |t|
