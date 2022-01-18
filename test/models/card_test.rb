@@ -2,7 +2,7 @@ require "test_helper"
 require "minitest/autorun"
 
 describe Card do
-  it "Card has rank, suit an value on init" do
+  it "Card has rank, suit and value on init" do
     assert_equal Card.new('2H').rank, "2"
     assert_equal Card.new('2H').suit, "H"
     assert_equal Card.new('2H').value, 0
@@ -28,7 +28,7 @@ describe Card do
     assert_equal Card.new('AS').value, 12
   end
 
-  it "Equal to" do
+  it "==" do
     assert_equal Card.new("TH") == Card.new("TH"), true
     assert_equal Card.new("2C") == Card.new("2C"), true
     assert_equal Card.new("8D") == Card.new("8D"), true

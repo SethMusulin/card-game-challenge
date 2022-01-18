@@ -1,7 +1,4 @@
 class Deal < ApplicationRecord
-  scope :player_1_win_count, -> { where(winner: 'Player 1').count }
-  scope :player_2_win_count, -> { where(winner: 'Player 2').count }
-  scope :pushes, -> { where(winner: 'Push').count }
   def determine_winner
     if self.winner.blank?
       hand_1 = Hand.new(player_1)
