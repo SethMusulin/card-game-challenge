@@ -38,16 +38,15 @@ position:relative;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  
-  a:active{
+}
+a:active{
   top:10px;
   background-color:#F78900;
   
   -webkit-box-shadow:inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
   -moz-box-shadow:inset 0 1px 0 #FFE5C4, inset 0 -3pxpx 0 #915100;
   box-shadow:inset 0 1px 0 #FFE5C4, inset 0 -3px 0 #915100;
-}
-
+ }
 :after{
   content:"";
   height:100%;

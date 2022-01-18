@@ -47,29 +47,33 @@ const HandHistory = (deal) => {
 
     return (
         <History>
-            <table>
-                <tbody>
-                <tr>
-                    <th>Player 1:  {player1Wins}</th>
-                    <th>Player 2:  {player2Wins}</th>
-                    <th>Winner</th>
-                </tr>
-                </tbody>
-                <tbody>
-                {history.map((deal) =>
-                    <tr key={deal.id}>
-                        <td>
-                            <Hand player="Player 1" cards={deal.attributes.player_1}/>
-                        </td>
-                        <td>
-                            <Hand player="Player 2" cards={deal.attributes.player_2}/>
-                        </td>
-                        <td>{deal.attributes.winner}</td>
+            {history.length > 0 ?
+                <table>
+                    <tbody>
+                    <tr>
+                        <th>Player 1:  {player1Wins}</th>
+                        <th>Player 2:  {player2Wins}</th>
+                        <th>Winner</th>
                     </tr>
-                )}
-                </tbody>
-            </table>
-
+                    </tbody>
+                    <tbody>
+                    {history.map((deal) =>
+                        <tr key={deal.id}>
+                            <td>
+                                <Hand player="Player 1" cards={deal.attributes.player_1}/>
+                            </td>
+                            <td>
+                                <Hand player="Player 2" cards={deal.attributes.player_2}/>
+                            </td>
+                            <td>{deal.attributes.winner}</td>
+                        </tr>
+                    )}
+                    </tbody>
+                </table>
+                :
+                <>
+                </>
+            }
         </History>
     )
 }
