@@ -9,13 +9,19 @@ display: flex;
 align-items: center;
 min-height: 210px;
 justify-content: center;
+overflow-x:auto;
  
 table, th, td {
   border: 1px solid black;
   }
  td{
   padding: 1rem;
- } 
+ }
+`
+const THeadSpan = styled.span`
+  display: flex;
+  justify-content: space-around;
+  font-size: 2rem;
 `
 
 const HandHistory = (deal) => {
@@ -51,9 +57,9 @@ const HandHistory = (deal) => {
                 <table>
                     <tbody>
                     <tr>
-                        <th>Player 1:  {player1Wins}</th>
-                        <th>Player 2:  {player2Wins}</th>
-                        <th>Winner</th>
+                        <th><THeadSpan><span>Player 1: </span> <span>{player1Wins} Wins</span></THeadSpan></th>
+                        <th><THeadSpan><span>Player 2: </span> <span>{player2Wins} Wins</span></THeadSpan></th>
+                        <th><span> Winner </span></th>
                     </tr>
                     </tbody>
                     <tbody>

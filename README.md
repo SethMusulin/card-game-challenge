@@ -9,3 +9,5 @@ Small Rails/React App that analyzes poker hands and displayes the winner
 * Test Suite: `bin/rails test`
 
 * Start server: `bin/rails s`, go to 'http://localhost:3000' and press the 'Deal' button.
+
+* Live app available at https://poker-hands-evaluator.herokuapp.com/

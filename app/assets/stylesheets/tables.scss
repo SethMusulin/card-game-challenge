@@ -14,3 +14,10 @@ body{
 #app-root{
   width: 100%;
 }
+@media
+only screen and (max-width: 870px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+#app-root{
+  width: auto;
+}
+}
