@@ -2,7 +2,7 @@
 
 Small Rails/React App that analyzes poker hands and displayes the winner
 
-* Ruby v3.0.2, Rails v6, React v17, SQLite
+* Ruby v3.0.2, Rails v6, React v17, Postgres
 
 * Database initialization: `bin/rails db:setup` (this will seed all the poker hands from lib/seeds/poker.txt)
 
