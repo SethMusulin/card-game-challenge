@@ -16,16 +16,5 @@ class DealTest < ActiveSupport::TestCase
     hand.determine_winner
     assert_equal hand.winner, 'Push'
   end
-  test "scopes" do
-    assert_equal Deal.player_1_win_count, 0
-    assert_equal Deal.player_2_win_count, 0
-    assert_equal Deal.pushes, 0
-    Deal.create(player_1: "7D 2S 5D 3S AC", player_2: "8C TS KC 9H 4S").determine_winner
-    assert_equal Deal.player_1_win_count, 1
-    Deal.create(player_1: "8C TS KC 9H 4S", player_2: "7D 2S 5D 3S AC").determine_winner
-    assert_equal Deal.player_2_win_count, 1
-    Deal.create(player_1: "3H 4C 5H 6C 8C", player_2: "3D 4S 5D 6S 8S").determine_winner
-    assert_equal Deal.pushes, 1
-  end
 end
 
