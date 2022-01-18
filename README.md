@@ -1,24 +1,11 @@
-# README
+# Card Game Challenge
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Small Rails/React App that analyzes poker hands and displayes the winner
 
-Things you may want to cover:
+* Ruby v3.0.2, Rails v6, React v17, SQLite
 
-* Ruby version
+* Database initialization: `bin/rails db:setup` (this will seed all the poker hands from lib/seeds/poker.txt)
 
-* System dependencies
+* Test Suite: `bin/rails test`
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Start server: `bin/rails s`, go to 'http://localhost:3000' and press the 'Deal' button.
