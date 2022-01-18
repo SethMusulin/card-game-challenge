@@ -11,6 +11,8 @@ border-style: solid;
 display:flex;
 justify-content: center;
 align-items:center;
+margin: 5px;
+border-radius: 0.5rem;
 `
 
 const Card = ({card}) => {
