@@ -63,7 +63,7 @@ const Table = () => {
                 <Loader>
                 {isLoading && <span>Loading...</span>}
                 </Loader>
-                <HandsWrapper>
+                <HandsWrapper data-test={'hands_wrapper'}>
                     {deal.id && !isLoading &&
                     <Hands>
                         <Hand player="Player 1" cards={deal.attributes.player_1}/>

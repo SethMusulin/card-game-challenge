@@ -1,0 +1,9 @@
+player_2_win:
+  player_1: 8C TS KC 9H 4S
+  player_2: 7D 2S 5D 3S AC
+  winner: Player 2
+
+player_1_win:
+  player_1: 5C AD 5D AC 9C
+  player_2: 7C 5H 8D TD KS
+  winner: Player 1
