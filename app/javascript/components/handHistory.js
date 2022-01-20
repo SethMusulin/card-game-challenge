@@ -50,6 +50,9 @@ const HandHistory = (deal) => {
         setPlayer2Wins(p2)
         setPushes(pushes)
     }
+    const formatWins = (num) => {
+        return num === 1 ? `${num} win` : `${num} wins`
+    }
 
     return (
         <History>
@@ -57,8 +60,8 @@ const HandHistory = (deal) => {
                 <table>
                     <tbody>
                     <tr>
-                        <th><THeadSpan><span>Player 1: </span> <span>{player1Wins} Wins</span></THeadSpan></th>
-                        <th><THeadSpan><span>Player 2: </span> <span>{player2Wins} Wins</span></THeadSpan></th>
+                        <th><THeadSpan><span>Player 1: </span> <span>{formatWins(player1Wins)}</span></THeadSpan></th>
+                        <th><THeadSpan><span>Player 2: </span> <span>{formatWins(player2Wins)}</span></THeadSpan></th>
                         <th><span> Winner </span></th>
                     </tr>
                     </tbody>

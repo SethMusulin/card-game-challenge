@@ -20,4 +20,11 @@ class DealsTest < ApplicationSystemTestCase
     table_rows = (page.all('table tr').size) -1
     assert_equal deal_count, table_rows
   end
+  test "history of the deals handles plural and singular" do
+    visit '/home'
+    assert_selector "span", text: "1 win"
+    Deal.create(player_1:'6H 4H 5C 3H 2H', player_2:'3S QH 5S 6S AS', winner: 'Player 1')
+    visit '/home'
+    assert_selector "span", text: "2 wins"
+  end
 end
