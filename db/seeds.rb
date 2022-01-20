@@ -8,7 +8,13 @@
 
 if Deal.all.empty?
   File.foreach("lib/seeds/poker.txt").with_index do |line, line_num|
-    Deal.create(player_1:line[0,14].chomp, player_2:line[15,29].chomp)
-    pp"creating hand #{line_num}"
+    begin
+      deal = Deal.create(player_1:line[0,14].chomp, player_2:line[15,29].chomp)
+
+      deal.determine_winner
+      pp"creating hand #{line_num}"
+    rescue
+      pp "Error Creating line number #{line_num}"
+    end
   end
 end
