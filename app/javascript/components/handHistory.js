@@ -77,8 +77,7 @@ const HandHistory = (deal) => {
                     </tbody>
                 </table>
                 :
-                <>
-                </>
+                <div>Loading...</div>
             }
         </History>
     )

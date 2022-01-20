@@ -35,28 +35,36 @@ const Hands = styled.div `
 const Winner = styled.div`
   margin:1rem;
 `
-
+const Loader = styled.span`
+min-height: 1.3rem;
+`
 
 const Table = () => {
     const [deal, setDeal] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     const onClick = (e) => {
+        setIsLoading(true)
         axios.get('/api/deal/')
             .then((resp) => {
                 setDeal(resp.data.data)
+                setIsLoading(false)
             })
     };
 
     return (
         <Wrapper>
             <Board>
-                <Button onClick={onClick}>
+                <Button onClick={onClick} disabled={isLoading}>
                   <span >
                     Deal
                   </span>
                 </Button>
+                <Loader>
+                {isLoading && <span>Loading...</span>}
+                </Loader>
                 <HandsWrapper>
-                    {deal.id &&
+                    {deal.id && !isLoading &&
                     <Hands>
                         <Hand player="Player 1" cards={deal.attributes.player_1}/>
                         <Hand player="Player 2" cards={deal.attributes.player_2}/>
