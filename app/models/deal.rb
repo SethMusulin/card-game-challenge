@@ -1,28 +1,24 @@
 class Deal < ApplicationRecord
+  # attributes:
+  # player_1
+  # player_2
+  # winner
   def determine_winner
     if self.winner.blank?
-      hand_1 = Hand.new(player_1)
-      hand_2 = Hand.new(player_2)
-      result = (hand_1 <=> hand_2)
-      self.winner = get_winner_name(result)
-      self.save
-      self.winner
-    else
-      self.winner
+      self.update(winner: get_winner_name(Hand.new(player_1), Hand.new(player_2)))
     end
+
+    self.winner
   end
 
   private
 
-  def get_winner_name(result)
-    if result == 1
-      return 'Player 1'
-    elsif result == -1
-      return 'Player 2'
-    elsif result == 0
-      return 'Push'
-    else
-      return nil
+  def get_winner_name(hand_1, hand_2)
+    case hand_1 <=> hand_2
+    when 1 then 'Player 1'
+    when -1 then 'Player 2'
+    when 0 then 'Push'
+    else nil
     end
   end
 end

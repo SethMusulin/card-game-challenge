@@ -1,4 +1,6 @@
 class Card
+  include Comparable
+
   attr_accessor :value
   attr_reader  :rank, :suit
 

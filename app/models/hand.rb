@@ -54,7 +54,7 @@ class Hand
   end
 
   def group
-    # create groupings of the cards by their rank
+    # create groupings of the cards by their value
     groupings = Hash.new(0)
     @cards.each {|c| groupings[c.value] += 1}
     groupings
@@ -79,6 +79,7 @@ class Hand
         :'full-house'
       when [1, 4] then
         :'four-of-a-kind'
+      else nil
       end
     end
   end

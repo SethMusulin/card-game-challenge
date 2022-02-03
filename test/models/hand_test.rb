@@ -164,7 +164,7 @@ describe Hand do
         assert_equal hand_1 <=> hand_2, -1
         assert_equal hand_2 <=> hand_1, 1
       end
-      it 'higher flush house wins'do
+      it 'higher flush wins'do
         hand_1 = Hand.new("4H 2H JH 7H KH")
         hand_2 = Hand.new("5D 6D AD 8D 9D")
         assert_equal hand_1 <=> hand_2, -1

@@ -16,5 +16,15 @@ class DealTest < ActiveSupport::TestCase
     hand.determine_winner
     assert_equal hand.winner, 'Push'
   end
+
+  test 'all the deals' do
+        Deal.delete_all
+        File.foreach("lib/seeds/poker.txt").with_index do |line, line_num|
+          deal = Deal.create(player_1: line[0, 14].chomp, player_2: line[15, 29].chomp)
+          deal.determine_winner
+        end
+    assert_equal Deal.where(winner:'Player 1').count,376
+    assert_equal Deal.where(winner:'Player 2').count,624
+    end
 end
 
