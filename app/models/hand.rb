@@ -15,7 +15,7 @@ class Hand
   end
 
   def <=> other
-    if (@hand_strength <=> other.hand_strength) == 0
+    if @hand_strength == other.hand_strength
       return  @sorted_values <=> other.sorted_values
     end
 
