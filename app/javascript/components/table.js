@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
-import Card from './card'
 import Hand from './hand'
 import HandHistory from './handHistory'
 

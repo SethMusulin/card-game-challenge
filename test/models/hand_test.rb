@@ -8,9 +8,10 @@ describe Hand do
       deal.cards.each do |card|
         assert card.is_a?(Card)
       end
-      assert_equal deal.groups, {"8" => 1, "T" => 1, "K" => 1, "9" => 1, "4" => 1}
+
+      assert_equal deal.groups, {6=>1, 8=>1, 11=>1, 7=>1, 2=>1}
       assert_equal deal.hand_strength, 0
-      assert_equal deal.sorted_values, [11, 8, 7, 6, 2]
+      assert_equal deal.sorted_values, [[1, 11], [1, 8], [1, 7], [1, 6], [1, 2]]
     end
   end
   describe 'evaluate' do
@@ -132,6 +133,42 @@ describe Hand do
         hand_2 = Hand.new("2D 2S 4D 4S KS")
         assert_equal hand_1 <=> hand_2, 1
         assert_equal hand_2 <=> hand_1, -1
+      end
+      it'high pair wins' do
+        hand_1 = Hand.new("5H KS 9C 7D 9H")
+        hand_2 = Hand.new("8D 3S 5D 5C AH")
+        assert_equal hand_1 <=> hand_2, 1
+        assert_equal hand_2 <=> hand_1, -1
+      end
+      it'high three of a kind wins' do
+        hand_1 = Hand.new("6H KS 9C 9D 9H")
+        hand_2 = Hand.new("8D 3S 5D 5C 5H")
+        assert_equal hand_1 <=> hand_2, 1
+        assert_equal hand_2 <=> hand_1, -1
+      end
+      it'high four of a kind wins' do
+        hand_1 = Hand.new("6H 9S 9C 9D 9H")
+        hand_2 = Hand.new("8D 5S 5D 5C 5H")
+        assert_equal hand_1 <=> hand_2, 1
+        assert_equal hand_2 <=> hand_1, -1
+      end
+      it 'higher full house wins'do
+        hand_1 = Hand.new("6H 6S TC TD TH")
+        hand_2 = Hand.new("8D 8S 5D 5C 5H")
+        assert_equal hand_1 <=> hand_2, 1
+        assert_equal hand_2 <=> hand_1, -1
+      end
+      it 'higher straight house wins'do
+        hand_1 = Hand.new("4H 5S 6C 7D 8H")
+        hand_2 = Hand.new("5D 6S 7S 8C 9H")
+        assert_equal hand_1 <=> hand_2, -1
+        assert_equal hand_2 <=> hand_1, 1
+      end
+      it 'higher flush house wins'do
+        hand_1 = Hand.new("4H 2H JH 7H KH")
+        hand_2 = Hand.new("5D 6D AD 8D 9D")
+        assert_equal hand_1 <=> hand_2, -1
+        assert_equal hand_2 <=> hand_1, 1
       end
       it "lowest high card" do
         hand_1 = Hand.new("3H 4C 5H 6C 8C")

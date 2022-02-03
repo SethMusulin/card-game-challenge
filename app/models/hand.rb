@@ -16,8 +16,9 @@ class Hand
 
   def <=> other
     if (@hand_strength <=> other.hand_strength) == 0
-      return  sorted_values <=> other.sorted_values
+      return  @sorted_values <=> other.sorted_values
     end
+
     @hand_strength <=> other.hand_strength
   end
 
@@ -29,7 +30,7 @@ class Hand
 
   def sort_card_values
     # sort the values and reverse them so the highest numbers are first for comparison
-    @cards.map(&:value).sort.reverse
+    @groups.to_a.map(&:reverse).sort.reverse
   end
 
   def suits
@@ -55,7 +56,7 @@ class Hand
   def group
     # create groupings of the cards by their rank
     groupings = Hash.new(0)
-    @cards.each {|c| groupings[c.rank] += 1}
+    @cards.each {|c| groupings[c.value] += 1}
     groupings
   end
 
