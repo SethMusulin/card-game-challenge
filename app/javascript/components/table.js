@@ -72,9 +72,7 @@ const Table = () => {
                     }
                 </HandsWrapper>
             </Board>
-            <HandHistory deal={deal}>
-
-            </HandHistory>
+            <HandHistory deal={deal}/>
         </Wrapper>
     )
 };

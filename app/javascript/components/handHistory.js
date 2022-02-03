@@ -35,7 +35,7 @@ const HandHistory = (deal) => {
                 setHistory(resp.data.data);
                 calculateAndSetTotals(resp.data.data)
             })
-    }, [deal])
+    }, [])
 
     const calculateAndSetTotals = (response) => {
         let p1 = 0
